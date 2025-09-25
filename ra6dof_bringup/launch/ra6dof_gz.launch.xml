@@ -1,0 +1,44 @@
+<launch>
+
+  <!-- Load description and start controllers -->
+  <let name="robot_description_path" value="$(find-pkg-share ra6dof_description)/urdf/mycobot_280.urdf.xacro" />
+  <let name="robot_controllers" value="$(find-pkg-share ra6dof_controller)/config/mycobot_280_controllers.yaml"/>
+
+  <node pkg="robot_state_publisher" exec="robot_state_publisher" output="both">
+    <param name="robot_description" value="$(command 'xacro $(var robot_description_path)')" />
+    <param name="use_sim_time" value="true" />
+  </node>
+
+  <!-- Start Gazebo -->
+  <include file="$(find-pkg-share ros_gz_sim)/launch/gz_sim.launch.py" >
+    <arg name="gz_args" value=" -r -v 1 empty.sdf"/>
+  </include>
+
+  <node pkg="ros_gz_bridge" exec="parameter_bridge" args="
+        /clock@rosgraph_msgs/msg/Clock[ignition.msgs.Clock"
+        output="screen">
+  </node>
+
+  <!-- Create robot in Gazebo -->
+  <node pkg="ros_gz_sim" exec="create" output="screen" args="-topic /robot_description -name 6dof_robot -allow-renaming true"/>
+
+  <!-- Start Controllers -->
+  <!--joint_state_braodcaster_spawner-->
+  <node pkg="controller_manager" exec="spawner" args="joint_state_broadcaster">
+    <param name="use_sim_time" value="true" />
+  </node>
+  <!-- arm controller -->
+  <node pkg="controller_manager" exec="spawner" args="arm_controller -c /controller_manager --param-file $(var robot_controllers)">
+    <param name="use_sim_time" value="true" />
+  </node>
+  <!--Gripper Controller-->
+  <node pkg="controller_manager" exec="spawner" args="gripper_action_controller -c /controller_manager --param-file $(var robot_controllers)">
+    <param name="use_sim_time" value="true" />
+  </node>
+
+  <!-- Rviz -->
+  <node pkg="rviz2" exec="rviz2" output="log" args="-d $(find-pkg-share ra6dof_description)/rviz/mycobot_280.rviz">
+    <param name="use_sim_time" value="true" />
+  </node>
+
+</launch>

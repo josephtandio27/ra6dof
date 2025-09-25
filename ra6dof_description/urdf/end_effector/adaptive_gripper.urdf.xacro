@@ -149,7 +149,7 @@
       </collision>
     </link>
 
-    <joint name="${prefix}gripper_controller" type="revolute">
+    <joint name="gripper_controller" type="revolute">
       <axis xyz="0 0 1"/>
       <limit effort="${joint_effort}" lower="-0.7" upper="0.15" velocity="${joint_velocity}"/>
       <parent link="${prefix}gripper_base"/>
@@ -164,7 +164,7 @@
       <parent link="${prefix}gripper_base"/>
       <child link="${prefix}gripper_left2"/>
       <origin xyz="-0.005 0.027 0" rpy="0 0 0"/>
-      <mimic joint="${prefix}gripper_controller" multiplier="1.0" offset="0"/>
+      <mimic joint="gripper_controller" multiplier="1.0" offset="0"/>
       <dynamics damping="${joint_damping}" friction="${joint_friction}"/>
     </joint>
 
@@ -174,7 +174,7 @@
       <parent link="${prefix}gripper_left3"/>
       <child link="${prefix}gripper_left1"/>
       <origin xyz="-0.027 0.016 0" rpy="0 0 0"/>
-      <mimic joint="${prefix}gripper_controller" multiplier="-1.0" offset="0"/>
+      <mimic joint="gripper_controller" multiplier="-1.0" offset="0"/>
       <dynamics damping="${joint_damping}" friction="${joint_friction}"/>
     </joint>
 
@@ -184,7 +184,7 @@
       <parent link="${prefix}gripper_base"/>
       <child link="${prefix}gripper_right3"/>
       <origin xyz="0.012 0.005 0" rpy="0 0 0"/>
-      <mimic joint="${prefix}gripper_controller" multiplier="-1.0" offset="0"/>
+      <mimic joint="gripper_controller" multiplier="-1.0" offset="0"/>
       <dynamics damping="${joint_damping}" friction="${joint_friction}"/>
     </joint>
 
@@ -194,7 +194,7 @@
       <parent link="${prefix}gripper_base"/>
       <child link="${prefix}gripper_right2"/>
       <origin xyz="0.005 0.027 0" rpy="0 0 0"/>
-      <mimic joint="${prefix}gripper_controller" multiplier="-1.0" offset="0"/>
+      <mimic joint="gripper_controller" multiplier="-1.0" offset="0"/>
       <dynamics damping="${joint_damping}" friction="${joint_friction}"/>
     </joint>
 
@@ -204,7 +204,7 @@
       <parent link="${prefix}gripper_right3"/>
       <child link="${prefix}gripper_right1"/>
       <origin xyz="0.027 0.016 0" rpy="0 0 0"/>
-      <mimic joint="${prefix}gripper_controller" multiplier="1.0" offset="0"/>
+      <mimic joint="gripper_controller" multiplier="1.0" offset="0"/>
       <dynamics damping="${joint_damping}" friction="${joint_friction}"/>
     </joint>
 

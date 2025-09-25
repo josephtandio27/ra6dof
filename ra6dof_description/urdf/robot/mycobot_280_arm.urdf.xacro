@@ -157,7 +157,7 @@
       <xacro:insert_block name="origin"/>
     </joint>
 
-    <joint name="${prefix}link1_to_${prefix}link2" type="revolute">
+    <joint name="link1_to_link2" type="revolute">
       <axis xyz="0 0 1"/>
       <limit effort="${joint_effort}" lower="-2.879793" upper="2.879793" velocity="${joint_velocity}"/>
       <parent link="${prefix}link1"/>
@@ -166,7 +166,7 @@
       <dynamics damping="${joint_damping}" friction="${joint_friction}"/>
     </joint>
 
-    <joint name="${prefix}link2_to_${prefix}link3" type="revolute">
+    <joint name="link2_to_link3" type="revolute">
       <axis xyz="0 0 1"/>
       <limit effort="${joint_effort}" lower="-2.879793" upper="2.879793" velocity="${joint_velocity}"/>
       <parent link="${prefix}link2"/>
@@ -175,7 +175,7 @@
       <dynamics damping="${joint_damping}" friction="${joint_friction}"/>
     </joint>
 
-    <joint name="${prefix}link3_to_${prefix}link4" type="revolute">
+    <joint name="link3_to_link4" type="revolute">
       <axis xyz="0 0 1"/>
       <limit effort="${joint_effort}" lower="-2.879793" upper="2.879793" velocity="${joint_velocity}"/>
       <parent link="${prefix}link3"/>
@@ -184,7 +184,7 @@
       <dynamics damping="${joint_damping}" friction="${joint_friction}"/>
     </joint>
 
-    <joint name="${prefix}link4_to_${prefix}link5" type="revolute">
+    <joint name="link4_to_link5" type="revolute">
       <axis xyz="0 0 1"/>
       <limit effort="${joint_effort}" lower="-2.879793" upper="2.879793" velocity="${joint_velocity}"/>
       <parent link="${prefix}link4"/>
@@ -193,7 +193,7 @@
       <dynamics damping="${joint_damping}" friction="${joint_friction}"/>
     </joint>
 
-    <joint name="${prefix}link5_to_${prefix}link6" type="revolute">
+    <joint name="link5_to_link6" type="revolute">
       <axis xyz="0 0 1"/>
       <limit effort="${joint_effort}" lower="-2.879793" upper="2.879793" velocity="${joint_velocity}"/>
       <parent link="${prefix}link5"/>
@@ -202,7 +202,7 @@
       <dynamics damping="${joint_damping}" friction="${joint_friction}"/>
     </joint>
 
-    <joint name="${prefix}link6_to_${prefix}${flange_link}" type="revolute">
+    <joint name="link6_to_flange" type="revolute">
       <axis xyz="0 0 1"/>
       <limit effort="${joint_effort}" lower="-3.05" upper="3.05" velocity="${joint_velocity}"/>
       <parent link="${prefix}link6"/>
