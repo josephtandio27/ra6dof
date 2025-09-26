@@ -1,5 +1,8 @@
 # Simulate 6 dof robotic arm in Gazebo Harmonic with ROS2 Jazzy.
 ## References:
+https://automaticaddison.com/how-to-control-a-robotic-arm-using-ros-2-control-and-gazebo/#Create_the_XACROURDF_Files-2
+https://control.ros.org/jazzy/doc/gz_ros2_control/doc/index.html#gz-ros2-control
+https://control.ros.org/jazzy/doc/ros2_control_demos/example_7/doc/userdoc.html
 
 ## Requirements
 - ros2_control
